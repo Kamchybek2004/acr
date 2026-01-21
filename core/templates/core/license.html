@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %} Лицензиялар {% endblock %}
+
+{% block extra_css %} 
+<link rel="stylesheet" href="{% static 'css/license.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- license -->
+<div class="container">
+    <div class="content">
+        {% for license in licenses %}
+            <div class="tite">
+                <h2>{{ license.title }}</h2>
+            </div>
+            <!-- Блок лицензии -->
+            <div class="license-block">
+                <div class="image">
+                    <!-- Изображение лицензии -->
+                    <img src="{{ license.img.url }}" alt="{{ license.title }}">
+                </div>
+                <div class="description">
+                    <p>
+                        {{ license.text }}
+                    </p>
+                </div>
+            </div>
+        {% empty %}
+            <p>Учурда лицензиялар жок.</p>
+        {% endfor %}
+    </div>
+</div>
+<!-- license -->
+
+<!-- Image viewer -->
+<div class="image-viewer" id="imageViewer">
+    <span class="close">&times;</span>
+    <img id="viewerImage" src="" alt="">
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/license.js' %}"></script>
+{% endblock %}

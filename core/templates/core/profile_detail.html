@@ -1,0 +1,146 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{%block title %} {{ profile.name }} {% endblock %}
+
+{% block hero %}{% endblock %}
+{% block content %}
+<!-- Профиль образовании -->
+<div class="container">
+    <div class="profile-details">
+        <div class="program"> 
+            <h4 class="p-title"> 
+                <strong>Профили:</strong> {{ profile.name }}
+            </h4> 
+            
+            <h5 class="p-title"> 
+                <strong>Даярдоо багыты:</strong> {{ profile.major.name }} - {{ profile.major.code }}
+            </h5> 
+
+            <p class="p-title">
+                <strong>Билим берүү деңгээли: {{ profile.major.get_edu_level_display }}</strong>
+            </p>
+            
+            <p class="p-title"> 
+                <strong>Окуу формасы:</strong> {{ profile.get_study_form_display }}
+            </p> 
+             
+            <div class="one">
+                <h5 class="p-title">Профиль боюнча документтердин тизмеси</h5> 
+            
+                <table class="one-table" border="1" cellpadding="6" cellspacing="0"> 
+                    <thead class="one-table-header"> 
+                        <tr>
+                            <th>Документ</th>
+                            <th>Файл</th>
+                        </tr>
+                    </thead>
+                    <tbody class="one-table-content">
+                        {% for doc in profile.documents.all %}
+                        <tr>
+                            <td>{{ doc.title }}</td>
+                            <td>
+                                {% if doc.file %}
+                                    <a href="{{ doc.file.url }}" target="_blank">PDF</a>
+                                {% else %}
+                                    <span>--</span>
+                                {% endif %}
+                            </td> 
+                        </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="2">
+                                    Документтер жок.
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table> 
+            </div>
+               
+            <div class="two">
+                <h5 class="p-title">
+                    Компетенциялардын паспорттору жана аларды калыптандыруу программалары
+                </h5> 
+
+                <div class="two-card-wrapper">
+                    {% for passport in profile.competence_passports.all %}
+                    <div class="two-card"> 
+                        <div> 
+                            <h6>{{ passport.title }}</h6>
+                            {% if passport.file %}
+                                <a href="{{ passport.file.url }}" target="_blank">PDF</a>
+                            {% else %}
+                                <span>--</span>
+                            {% endif %}
+
+                        </div> 
+                    </div> 
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="three">
+                <h5 class="p-title">Дисциплиналардын, модулдардын жана практикалардын программалары</h5> 
+            
+                <table class="three-table" border="1" cellpadding="6" cellspacing="0"> 
+                    <thead class="three-table-header"> 
+                        <tr> 
+                            <th>Дисциплина / модуль</th> 
+                            <th>Аннотация</th> 
+                            <th>Программа</th>
+                            <th>Баалоо каражаттарынын фонду (ФОС)</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody class="three-table-content"> 
+                        {% for module in profile.modules.all %}
+                        <tr> 
+                            <td>{{ module.name }}</td>
+                            
+                            <td>
+                                {% if module.annotation %}
+                                    <a href="{{ module.annotation.url }}" target="_blank">PDF</a>
+                                {% else %}
+                                    --
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if module.syllabus %}
+                                    <a href="{{ module.syllabus.url }}" target="_blank">PDF</a>
+                                {% else %}
+                                    --
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if module.assesment_fund %}
+                                    <a href="{{ module.assesment_fund.url }}" target="_blank">PDF</a>
+                                {% else %}
+                                    ---
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <tr><td colspan="4">Документтер жок.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+                <div class="three-btn-prev"> 
+                    <a href="{% url 'edu_program' %}">Артка кайтуу</a> 
+                </div> 
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Профиль образовании -->
+{% endblock %}
+

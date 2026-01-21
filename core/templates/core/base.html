@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}НМУ окуу башкармалыгы{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!--header -->
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="nav-left">
+                <a href="{% url 'index' %}">Башкы бет</a>
+                <a href="{% url 'edu_program' %}">Билим берүү программалары</a>
+                <a href="{% url 'document' %}">Нормативдик документтер</a>
+                <a href="{% url 'license' %}">Лицензиялар</a>
+            </div>
+           <div class="nav-right">
+                <div class="language">
+                    <div class="lang-select">
+                        <img src="{% static '/img/ky.png' %}" alt="Кыргызский" class="current-flag">
+                        <ul class="lang-dropdown">
+                            <li data-lang="ru">
+                                <img src="{% static '/img/ru.png' %}" alt="Русский">
+                                <span>Русский</span>
+                            </li>
+                            <li data-lang="ky">
+                                <img src="{% static '/img/ky.png' %}" alt="Кыргызский">
+                                <span>Кыргызча</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="login">
+                    <div class="title">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Логин</p>
+                    </div>
+                    <ul class="login-dropdown">
+                        <li><a href="{% url 'login' %}">Кирүү (админ)</a></li>
+                        <li><a href="{% url 'register' %}">Катталуу</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block hero %}
+    <div class="hero" style="background: url('{% static 'img/background.jpg' %}') center / cover no-repeat;">
+        <div class="logo">
+            <img src="{% static 'img/nsu-logo.png' %}" alt="logo">
+        </div>
+        <h1>
+            С. Нааматов атындагы<br>
+            Нарын мамлекеттик университетинин<br>
+            окуу башкармалыгы
+        </h1>
+    </div>
+    {% endblock %}
+</header>
+<!--header -->
+
+
+{% block content %}{% endblock %}
+
+<!--Footer -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-col">
+            <h4>Дареги</h4>
+            <a href="https://maps.app.goo.gl/ye3ked4BroCf7xPC9" target="_blank" class="footer-link">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>г. Нарын, ул. С.Орозбак 25</span>
+            </a>
+
+            <span>Техникалык жардам:</span>
+
+            <a href="https://wa.me/996501287308/" class="footer-link" target="_blank" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Whatsapp: +996 501-287-308</span>
+            </a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Байланыш үчүн</h4>
+
+            <a href="" class="footer-link">
+                <i class="fa-solid fa-phone"></i>
+                <span>+996 501-287-308</span>
+            </a>
+
+            <a href="mailto:ngu@ktnet.kg" class="footer-link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>ngu@ktnet.kg</span>
+            </a>
+
+            <a href="https://www.nsu.kg" target="_blank" class="footer-link">
+                <i class="fa-solid fa-globe"></i>
+                <span>www.nsu.kg</span>
+            </a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Социалдык тармактар</h4>
+
+            <div class="socials">
+                <a href="#" aria-label="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://www.instagram.com/nsu.kg/" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100038095823355" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<!--Footer -->
+{% block extra_js %}{% endblock %}
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/menu.js' %}"></script>
+</body>
+</html>

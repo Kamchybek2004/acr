@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            <h2>Катталуу</h2>
+
+            {% if form.non_field_errors %}
+                <div class="form-error">
+                    {{ form.non_field_errors|striptags }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                {{ form.last_name.label_tag }}
+                
+                <div class="input-wrapper">
+                    {{ form.last_name }}
+                </div>
+
+                {% if form.last_name.errors %}
+                    <div class="form-error">
+                        {{ form.last_name.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.first_name.label_tag }}
+                
+                <div class="input-wrapper">
+                    {{ form.first_name }}
+                </div>
+                {% if form.fisrt_name.errors %}
+                    <div class="form-error">
+                        {{ form.first_name.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+
+                <div class="input-wrapper">
+                    {{ form.email }}
+                </div>
+                {% if form.email.errors %}
+                    <div class="form-error">
+                        {{ form.email.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.password1 }}
+                    <span class="toggle-password" onclick="togglePassword('password1', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+                {% if form.password1.errors %}
+                    <div class="form-error">
+                        {{ form.password1.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+ 
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.password2 }}
+                    
+                    <span class="toggle-password" onclick="togglePassword('password2', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+                {% if form.password2.errors %}
+                    <div class="form-error">
+                        {{ form.password2.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn">Каттоо</button>
+
+            <p class="switch">
+                Аккаунтуңуз барбы?
+                <a href="{% url 'login' %}">Кирүү</a>
+            </p>
+        </form>
+    </div>
+
+<script>
+function togglePassword(inputId, toggle) {
+    const input = document.getElementById(inputId);
+    const icon = toggle.querySelector("i");
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+</script>
+
+</body>
+</html>

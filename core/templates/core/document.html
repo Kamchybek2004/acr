@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %} Нормативдик документтер {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/document.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Нормативные документы -->
+<div class="container">
+    
+    <div class="content">
+        <!-- Законы  -->
+        <div class="title">
+            <h2>Нормативдик документтер</h2>
+        </div>
+        <div class="documents">
+            <div class="law-title">
+                <h2>Кыргыз Республикасынын мыйзамдары</h2>
+                <div class="law-block">
+                    {% for order in categories.kr_laws %}
+                    <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Постановлении  -->
+            <div class="resolution">
+                <h2>Кыргыз Республикасынын Өкмөтүнүн жоболору</h2>
+                <div class="resolution-block">
+                    {% for order in categories.gov_resolution %}
+                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Приказы мин.образовании -->
+            <div class="order">
+                <h2>Кыргыз Республикасынын Илим, жогорку билим берүү министрлигинин буйруктары, каттары</h2>
+                <div class="resolution-block">
+                    {% for order in categories.ministry_orders %}
+                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Приказы НГУ -->
+            <div class="order-nsu">
+                <h2>Нарын мамлекеттик университетинин буйруктары</h2>
+                {% for order in categories.nsu_orders %}
+                <div class="resolution-block">
+                    <a href="{{ order.file.url }}" target="_blank">{{ order.title}}</a>
+                </div>
+                {% empty %}
+                    <p>Документтер жок.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
