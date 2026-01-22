@@ -1,0 +1,106 @@
+/* ----------------- Нормативные документы ----------------- */
+
+.title {
+    font-size: large;
+}
+
+.title h2 {
+    margin-bottom: 15px;
+    color: #00679c;
+    text-align: center;
+}
+
+.documents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* две карточки в ряд на десктопе */
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* Каждый раздел как карточка */
+.law-title,
+.resolution,
+.order,
+.order-nsu {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Заголовок блока */
+.law-title h2,
+.resolution h2,
+.order h2,
+.order-nsu h2 {
+    font-size: 18px;
+    color: #00679c;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Ссылки внутри блока — по отдельной строке */
+.law-block a,
+.resolution-block a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+    color: #333;
+    text-decoration: none;
+    border-left: 4px solid #00679c;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.law-block a:hover,
+.resolution-block a:hover {
+    background-color: #e0f0ff;
+}
+
+/* Последний элемент без нижнего отступа */
+.law-block a:last-child,
+.resolution-block a:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ----------------- Адаптивные стили для мобильных ----------------- */
+@media (max-width: 992px) {
+    .content {
+        grid-template-columns: 1fr; /* все карточки в одну колонку */
+        gap: 15px;
+    }
+
+    .law-title h2,
+    .resolution h2,
+    .order h2,
+    .order-nsu h2 {
+        font-size: 16px;
+    }
+
+    .law-block a,
+    .resolution-block a {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .law-title h2,
+    .resolution h2,
+    .order h2,
+    .order-nsu h2 {
+        font-size: 15px;
+    }
+
+    .law-block a,
+    .resolution-block a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .content {
+        padding: 0 10px;
+    }
+}

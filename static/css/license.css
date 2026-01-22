@@ -1,0 +1,86 @@
+
+.content .title {
+    font-size: large;
+}
+
+.content .tite h2 {
+    margin: 10px 0 40px;   /* внешний отступ, чтобы не липло к изображениям */
+    color: #00679c;
+    text-align: center;
+}
+
+/* Блок лицензии — без фона */
+.license-block {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+/* Левая часть — изображение */
+.license-block .image {
+    flex: 0 0 40%;
+    cursor: zoom-in;
+}
+
+.license-block .image img {
+    width: 100%;
+    height: auto;
+    display: block;       
+    object-fit: contain;
+}
+
+/* Правая часть — описание */
+.license-block .description {
+    flex: 1;
+}
+
+.license-block .description p {
+    font-size: 17px;           /* средний */
+    font-weight: 500;          /* средний */
+    line-height: 1.7;
+    color: #2f2f2f;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+    .license-block {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .license-block .image {
+        flex: 100%;
+    }
+}
+
+/* ===== Image viewer ===== */
+
+.image-viewer {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.image-viewer img {
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    transform: scale(1);
+    cursor: grab;
+    user-select: none;
+}
+
+.image-viewer .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}

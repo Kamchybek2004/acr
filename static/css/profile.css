@@ -1,0 +1,330 @@
+/* ===============================
+   PROFILE DETAILS
+   =============================== */
+
+.profile-details {
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.program {
+    background: #fff;
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Заголовки и текст */
+.p-title {
+    margin-bottom: 10px;
+    color: #0b3c5d;
+}
+
+.program h4.p-title {
+    font-size: 22px;
+}
+
+.program h5.p-title {
+    font-size: 18px;
+    margin-top: 26px;
+}
+
+.program p.p-title {
+    font-size: 15px;
+    color: #444;
+}
+
+/* ===============================
+   BLOCK ONE — DOCUMENTS
+   =============================== */
+
+.one {
+    margin-top: 30px;
+}
+
+.one-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.one-table-header {
+    background: #f3f7fa;
+}
+
+.one-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #d9e3ea;
+}
+
+.one-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.one-table-content tr:hover {
+    background: #f9fcff;
+}
+
+/* ===============================
+   BLOCK TWO — CARDS GRID
+   =============================== */
+
+/* ====== TWO: паспорта и компетенции ====== */
+
+.two {
+    margin-top: 40px;
+}
+
+/* Контейнер карточек */
+.two-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px; /* расстояние между карточками */
+    margin-top: 16px;
+}
+
+/* Карточка */
+.two-card {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover-эффект */
+.two-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Заголовок карточки */
+.two-card h6 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1f2937;
+}
+
+/* Ссылка */
+.two-card a {
+    font-size: 14px;
+    color: #00679c;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.two-card a:hover {
+    text-decoration: underline;
+}
+    
+/* ===============================
+   BLOCK THREE — PROGRAMS
+   =============================== */
+
+.three {
+    margin-top: 36px;
+}
+
+.three .p-title {
+    text-align: center;
+}
+
+.three-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.three-table-header {
+    background: #f3f7fa;
+}
+
+.three-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #d9e3ea;
+}
+
+.three-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.three-table-content tr:hover {
+    background: #f9fcff;
+}
+
+/* ===============================
+   LINKS
+   =============================== */
+
+.profile-details a {
+    color: #00679c;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.profile-details a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   BACK BUTTON
+   =============================== */
+
+.three-btn-prev {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.three-btn-prev a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #00679c;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: background 0.25s ease;
+}
+
+.three-btn-prev a:hover {
+    background: #004e78;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 768px) {
+    .program {
+        padding: 22px;
+    }
+
+    .program h4.p-title {
+        font-size: 20px;
+    }
+
+    .program h5.p-title {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .program {
+        padding: 16px;
+    }
+
+    .one-table thead {
+        display: flex;
+    }
+
+    .one-table-header,
+    .three-table-header {
+        display: none;
+    }
+
+    .one-table tr {
+        display: inline-block;
+        border-bottom: 1px solid #e6e6e6;
+        width: 100%;
+    }
+
+    .one-table td {
+        border: none;
+        padding: 6px 0;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .one {
+        overflow-x: auto;
+    }
+
+    .one-table {
+        min-width: 320px;
+        font-size: 14px;
+    }
+
+    .one-table-header th {
+        width: 100%;
+    }
+    
+    .one-table th,
+    .one-table td {
+        padding: 10px 8px;
+        white-space: nowrap;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .two-card-wrapper {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .two-card {
+        padding: 14px 16px;
+    }
+
+    .two-card h6 {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .three-table {
+        border: 1px solid #00679c;
+    }
+
+
+    .three-table thead {
+        display: flex;
+    }
+
+    .three-table tr {
+        display: flex;
+        padding: 14px 16px;
+    }
+
+    .three-table th {
+        font-size: 10px;
+    }
+
+    .three-table-content tr {
+        justify-content: space-between;
+    }
+    /* Название дисциплины */
+    .three-table td:first-child {
+        font-weight: 600;
+        font-size: 10px;
+        margin-bottom: 10px;
+        color: #0b3c5d;
+    }
+
+    /* Ссылки */
+    .three-table td:not(:first-child) a {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 6px 10px;
+        background: #f0f6fb;
+        border-radius: 6px;
+        font-size: 13px;
+    }
+
+}
+
