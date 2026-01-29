@@ -19,14 +19,17 @@
             <!-- Блок лицензии -->
             <div class="license-block">
                 <div class="image">
+                    {% if license.file %}
                     <!-- Изображение лицензии -->
                     <img src="{{ license.img.url }}" alt="{{ license.title }}">
+                    {% else %}
+                        <p>Лицензия же сертификат файлдары жуктолгон эмес.</p>
                 </div>
-                <div class="description">
+                <!--<div class="description">
                     <p>
                         {{ license.text }}
                     </p>
-                </div>
+                </div>-->
             </div>
         {% empty %}
             <p>Учурда лицензиялар жок.</p>

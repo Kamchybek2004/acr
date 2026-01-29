@@ -30,8 +30,8 @@ def delete_order_file(sender, instance, **kwargs):
 
 @receiver(post_delete, sender=License)
 def delete_license_img(sender, instance, **kwargs):
-    if instance.img:
-        instance.img.delete(save=False)
+    if instance.file:
+        instance.file.delete(save=False)
 
 
 # ------------------------
@@ -79,5 +79,5 @@ def delete_old_license_img(sender, instance, **kwargs):
     if not instance.pk:
         return
     old_instance = License.objects.get(pk=instance.pk)
-    if old_instance.img and old_instance.img != instance.img:
-        old_instance.img.delete(save=False)
+    if old_instance.file and old_instance.file != instance.file:
+        old_instance.file.delete(save=False)

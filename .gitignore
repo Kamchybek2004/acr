@@ -10,7 +10,6 @@ db.sqlite3
 *.pyo
 *py[cod]
 
-/static/
 media/
 *.mo
 

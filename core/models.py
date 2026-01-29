@@ -162,7 +162,7 @@ class CompetencePassport(models.Model):
 # Лицензия 
 class License(models.Model):
     title = models.CharField('Название лицензии', max_length=255)
-    img = models.ImageField('Изображение', upload_to="images/license/")
+    file = models.FileField('Изображение', upload_to="images/license/", blank=True, null=True)
 
     text = models.TextField('Описание', default="")
 

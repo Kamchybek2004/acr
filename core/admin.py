@@ -116,7 +116,7 @@ class LicenseAdmin(admin.ModelAdmin):
     list_display = ('title', 'text')
     search_fields = ('title', 'text')
 
-    fields = ('title', 'img', 'text')  # порядок полей в форме
+    fields = ('title', 'file', 'text')  # порядок полей в форме
 
 
 @admin.register(Order)
