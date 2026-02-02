@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Лицензиялар {% endblock %}
+{% block title %} Лицензиялар | Сертификаттар {% endblock %}
 
 {% block extra_css %} 
 <link rel="stylesheet" href="{% static 'css/license.css' %}">
@@ -19,11 +19,13 @@
             <!-- Блок лицензии -->
             <div class="license-block">
                 <div class="image">
-                    {% if license.file %}
                     <!-- Изображение лицензии -->
-                    <img src="{{ license.img.url }}" alt="{{ license.title }}">
+		    {% if license.file %}
+		        <iframe src="{{ license.file.url }}" width="100%" height="600px" style="border: none;">
+                        </iframe>
                     {% else %}
                         <p>Лицензия же сертификат файлдары жуктолгон эмес.</p>
+                    {% endif %}    
                 </div>
                 <!--<div class="description">
                     <p>
