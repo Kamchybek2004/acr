@@ -36,6 +36,9 @@ def document(request):
         'nsu_orders': orders.filter(category='nsu_orders'),
         'smk1': orders.filter(category='smk1'),
         'smk2': orders.filter(category='smk2'),
+        'smk3': orders.filter(category='smk3'),
+        'smk4': orders.filter(category='smk4'),
+        'smk5': orders.filter(category='smk5'),
     }
     return render(request, "core/document.html", {'categories': categories})
 

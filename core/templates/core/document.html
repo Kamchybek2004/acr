@@ -63,9 +63,9 @@
                 {% empty %}
                     <p>Документтер жок.</p>
                 {% endfor %}
-            </div>
+            </div> 
 
-            <!-- Приказы мин.образовании -->
+            <!-- CMK 1 -->
             <div class="order">
                 <h2>CMK 1</h2> 
                 <div class="resolution-block">
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <!-- CMK -->
+            <!-- CMK 2-->
             <div class="order">
                 <h2>CMK 2</h2>
                 <div class="resolution-block">
@@ -88,6 +88,43 @@
                     {% endfor %}
                 </div>
             </div>
+
+            <!-- CMK 3 -->
+            <div class="order">
+                <h2>CMK 1</h2> 
+                <div class="resolution-block">
+                    {% for order in categories.smk1 %}
+                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- CMK 4-->
+            <div class="order">
+                <h2>CMK 2</h2>
+                <div class="resolution-block">
+                    {% for order in categories.smk2 %}
+                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+             <!-- CMK 5-->
+            <div class="order">
+                <h2>CMK 2</h2>
+                <div class="resolution-block">
+                    {% for order in categories.smk2 %}
+                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

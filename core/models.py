@@ -184,6 +184,9 @@ class Order(models.Model):
         ('nsu_orders', 'Нарын мамлекеттик университетинин буйруктары'),
         ('smk1', 'CMK 1'),
         ('smk2', 'CMK 2'),
+        ('smk3', 'CMK 3'),
+        ('smk4', 'CMK 4'),
+        ('smk5', 'CMK 5'),
     ]
 
     title = models.CharField('Название приказа', max_length=255)
@@ -196,3 +199,4 @@ class Order(models.Model):
 
     def __str__(self):
         return self.title
+ 
