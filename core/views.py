@@ -21,7 +21,7 @@ def profile_detail(request, slug):
     modules_qs = Module.objects.all().order_by('name')
 
     if letter:
-        modules_qs = modules_qs.fillter(name__istartwith=letter)
+        modules_qs = modules_qs.filter(name__istartswith=letter)
 
     profile = get_object_or_404(
         Profile.objects.prefetch_related(
