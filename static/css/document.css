@@ -67,8 +67,7 @@
 }
 
 /* Последний элемент без нижнего отступа */
-.law-block a:last-child,
-.resolution-block a:last-child {
+.law-block a:last-child {
     margin-bottom: 0;
 }
 
