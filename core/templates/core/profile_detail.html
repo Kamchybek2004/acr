@@ -90,7 +90,24 @@
 
             <div class="three">
                 <h5 class="p-title">Дисциплиналардын, модулдардын жана практикалардын программалары</h5> 
-            
+
+                <div class="alphabet-filter">
+                    <form method="get">
+                        <button type="submit" name="letter" value="">Все</button>
+
+                        {% for l in "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯ" %}
+                            <button
+                                type="submit"
+                                name="letter"
+                                value="{{ l }}"
+                                class="{% if selected_letter == l %}active{% endif %}"
+                            >
+                                {{ l }}
+                            </button>
+                        {% endfor %}
+                    </form>
+                </div>
+
                 <table class="three-table" border="1" cellpadding="6" cellspacing="0"> 
                     <thead class="three-table-header"> 
                         <tr> 
@@ -101,7 +118,7 @@
                         </tr> 
                     </thead> 
                     <tbody class="three-table-content"> 
-                        {% for module in profile.modules.all %}
+                        {% for module in modules %}
                         <tr> 
                             <td>{{ module.name }}</td>
                             

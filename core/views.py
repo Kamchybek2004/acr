@@ -1,7 +1,8 @@
 # core/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Major, Profile, License, Order
+from .models import Major, Profile, License, Order, Module
 from  django.http import Http404
+from django.db.models import Prefetch
 
 # Главная страница
 def index(request):
@@ -15,16 +16,27 @@ def edu_program(request):
 
 # Профиль образования 
 def profile_detail(request, slug):
+    letter = request.GET.get('letter') # буква
+
+    modules_qs = Module.objects.all().order_by('name')
+
+    if letter:
+        modules_qs = modules_qs.fillter(name__istartwith=letter)
+
     profile = get_object_or_404(
         Profile.objects.prefetch_related(
             'documents',
-            'modules',
-            'competence_passports'
+            'competence_passports',
+            Prefetch('modules', queryset=modules_qs),
         ),
         slug=slug
     )
     
-    return render(request, "core/profile_detail.html", {'profile': profile})
+    return render(request, "core/profile_detail.html", {
+        'profile': profile,
+        'modules': profile.modules.all(),
+        'selected_letter', letter,
+        })
 
 # Нормативные документы
 def document(request):  
