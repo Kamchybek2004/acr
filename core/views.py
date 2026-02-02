@@ -35,7 +35,7 @@ def profile_detail(request, slug):
     return render(request, "core/profile_detail.html", {
         'profile': profile,
         'modules': profile.modules.all(),
-        'selected_letter', letter,
+        'selected_letter': letter,
         })
 
 # Нормативные документы
