@@ -39,6 +39,10 @@
     text-align: left;
 }
 
+.order-nsu .resolution-block a {
+    margin-bottom: 10px;
+}
+
 /* Ссылки внутри блока — по отдельной строке */
 .law-block a,
 .resolution-block a {
