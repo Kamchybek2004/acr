@@ -39,8 +39,12 @@
     text-align: left;
 }
 
-.order-nsu .resolution-block a {
+.order-nsu .resolution-block {
     margin-bottom: 10px;
+}
+
+.order-nsu .resolution-block:last-child {
+    margin-bottom: 0;
 }
 
 /* Ссылки внутри блока — по отдельной строке */
