@@ -128,7 +128,7 @@
                         <td data-label="Профиль">
                             <a href="{% url 'profile_detail' profile.slug %}">{{ profile.name }}</a>
                         </td> 
-                        <td data-label="Форма обучения">{{ profile.get_study_form_display }}</td>S
+                        <td data-label="Форма обучения">{{ profile.get_study_form_display }}</td>
                     </tr>
                     {% endfor %}
                 {% empty %}
