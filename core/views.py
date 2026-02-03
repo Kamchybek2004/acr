@@ -46,7 +46,7 @@ def document(request):
         'gov_resolution': orders.filter(category='gov_resolution'),
         'ministry_orders': orders.filter(category='ministry_orders'),
         'nsu_orders': orders.filter(category='nsu_orders'),
-        'gos': oreders.filter(category='gos'),
+        'gos': orders.filter(category='gos'),
         'smk1': orders.filter(category='smk1'),
         'smk2': orders.filter(category='smk2'),
         'smk3': orders.filter(category='smk3'),
