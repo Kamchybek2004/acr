@@ -215,7 +215,7 @@ class Schedule(models.Model):
 
     title = models.CharField('Название', max_length=255)
     file = models.FileField('Файл (PDF)', upload_to='schedules/')
-    facutly = models.CharField(
+    faculty = models.CharField(
         'Факультет/колледж',
         max_length=100,
         choices=FACULTIES,

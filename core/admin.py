@@ -138,5 +138,4 @@ class ScheduleAdmin(admin.ModelAdmin):
     list_display = ('title', 'faculty')
     list_filter = ('faculty',)
     search_fields = ('title',)
-    fields = ('title', 'file', 'faculty')
 

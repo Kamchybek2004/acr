@@ -76,11 +76,13 @@ def schedule(request):
     schedules = Schedule.objects.all()
 
     categories = {
-        'atf': schedules.filter(category='atf'),
-        'econom': schedules.filter(category='econom'),
-        'ped': schedules.filter(category='ped'),
-        'phil': schedules.filter(category='phil'),
-        'it': schedules.filter(category='it'),
+        'atf': schedules.filter(faculty='atf'),
+        'econom': schedules.filter(faculty='econom'),
+        'ped': schedules.filter(faculty='ped'),
+        'phil': schedules.filter(faculty='phil'),
+        'it': schedules.filter(faculty='it'),
     }
 
-    return render(request, "core/schedule.html", {categories})
+    return render(request, "core/schedule.html", {
+        'categories': categories
+    })
