@@ -200,4 +200,32 @@ class Order(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# Учебное расписание
+class Schedule(models.Model):
  
+    FACULTIES = [
+        ('atf': 'Агрардык-техникалык факультети'),
+        ('ped': 'Педагогика факультети'),
+        ('phil': 'Филология факультети'),
+        ('econom': 'Экономика жана табигый-гуманитардык илимдер факультети'),
+        ('it': 'Чет тилдери жана компьютердик системаларды программалоо'),
+    ]  
+
+    title = models.CharField('Название', max_length=255)
+    file = models.FileField('Файл (PDF)', upload_to='schedules/')
+    facutly = models.CharField(
+        'Факультет/колледж',
+        max_length=100,
+        choices=FACULTIES,
+        default='atf'
+    )
+ 
+    class Meta:
+        verbose_name = 'Учебное расписание'
+        verbose_name_plural = 'Учебные расписания'
+        ordering = ['faculty', 'title']
+
+    def __str__(self):
+        return self.title

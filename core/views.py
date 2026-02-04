@@ -1,6 +1,6 @@
 # core/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Major, Profile, License, Order, Module
+from .models import Major, Profile, License, Order, Module, Schedule
 from  django.http import Http404
 from django.db.models import Prefetch
 
@@ -70,3 +70,17 @@ def register(request):
 
 def profile_index(request):
     raise Http404('Page not found') 
+
+# Учебное расписание
+def schedule(request):
+    schedules = Schedule.objects.all()
+
+    categories = {
+        'atf': schedules.filter(category='atf'),
+        'econom': schedules.filter(category='econom'),
+        'ped': schedules.filter(category='ped'),
+        'phil': schedules.filter(category='phil'),
+        'it': schedules.filter(category='it'),
+    }
+
+    return render(request, "core/schedule.html", {categories})

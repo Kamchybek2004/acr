@@ -1,0 +1,77 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %} Окуу жүгүртмөсү {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/document.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="content">
+        <div class="title">
+            <h2>Окуу жүгүртмөлөрү</h2>
+        </div>
+
+        <div class="documents">
+
+            <div class="order">
+                <h2>Агрардык техникалык факультети</h2>
+                <div class="resolution-block">
+                    {% for item in categories.atf %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="order">
+                <h2>Экономика жана табигый-гуманитардык факультети</h2>
+                <div class="resolution-block">
+                    {% for item in categories.econom %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="order">
+                <h2>Педагогика факультети</h2>
+                <div class="resolution-block">
+                    {% for item in categories.ped %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="order">
+                <h2>Филология факультети</h2>
+                <div class="resolution-block">
+                    {% for item in categories.phil %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="order">
+                <h2>Чет тилдери жана компьютердик системаларды программалоо колледжи</h2>
+                <div class="resolution-block">
+                    {% for item in categories.it %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

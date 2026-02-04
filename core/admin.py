@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     Major, Profile, Module,
     ProfileDocument, CompetencePassport,
-    License, Order
+    License, Order, Schedule
 )
 
 admin.site.site_header = "Панель управления аккредитацией"
@@ -126,3 +126,17 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
     fields = ('title', 'file', 'category')
+
+
+ 
+# =======================
+# Schedule
+# =======================
+
+@admin.register(Schedule)
+class ScheduleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'faculty')
+    list_filter = ('faculty',)
+    search_fields = ('title',)
+    fields = ('title', 'file', 'faculty')
+
