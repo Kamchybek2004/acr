@@ -188,7 +188,6 @@ class Order(models.Model):
         ('smk2', 'CMK 2'),
         ('smk3', 'CMK 3'),
         ('smk4', 'CMK 4'),
-        ('smk5', 'CMK 5'),
     ]
 
     title = models.CharField('Название приказа', max_length=255)

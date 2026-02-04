@@ -52,7 +52,6 @@ def document(request):
         'smk2': orders.filter(category='smk2'),
         'smk3': orders.filter(category='smk3'),
         'smk4': orders.filter(category='smk4'),
-        'smk5': orders.filter(category='smk5'),
     }
     return render(request, "core/document.html", {'categories': categories})
 

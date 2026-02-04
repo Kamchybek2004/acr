@@ -67,7 +67,7 @@
 
              <!-- ГОС -->
             <div class="order">
-                <h2>Мамлекеттик билим берүү стандарты</h2> 
+                <h2>Окуу планы</h2> 
                 <div class="resolution-block">
                     {% for order in categories.edu_plan %}
                         <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
@@ -130,18 +130,6 @@
                 <h2>CMK 4</h2>
                 <div class="resolution-block">
                     {% for order in categories.smk4 %}
-                        <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
-                    {% empty %}
-                        <p>Документтер жок.</p>
-                    {% endfor %}
-                </div>
-            </div>
-
-             <!-- CMK 5-->
-            <div class="order">
-                <h2>CMK 5</h2>
-                <div class="resolution-block">
-                    {% for order in categories.smk5 %}
                         <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
                     {% empty %}
                         <p>Документтер жок.</p>
