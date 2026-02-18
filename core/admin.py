@@ -128,7 +128,6 @@ class OrderAdmin(admin.ModelAdmin):
     fields = ('title', 'file', 'category')
 
 
- 
 # =======================
 # Schedule
 # =======================

@@ -126,7 +126,7 @@ class ProfileDocument(models.Model):
 
     title = models.CharField('Название документа', max_length=255)
     file = models.FileField('Файл', upload_to='profiles/', blank=True, null=True)
-
+        
     class Meta:
         verbose_name = 'Документ профиля'
         verbose_name_plural = 'Документы профиля'
@@ -211,6 +211,7 @@ class Schedule(models.Model):
         ('phil', 'Филология факультети'),
         ('econom', 'Экономика жана табигый-гуманитардык илимдер факультети'),
         ('it', 'Чет тилдери жана компьютердик системаларды программалоо'),
+        ('edu_graphics', 'Окуу графиги'),
     ]  
 
     title = models.CharField('Название', max_length=255)

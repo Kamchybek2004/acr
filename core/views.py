@@ -81,6 +81,7 @@ def schedule(request):
         'ped': schedules.filter(faculty='ped'),
         'phil': schedules.filter(faculty='phil'),
         'it': schedules.filter(faculty='it'),
+        'edu_graphics': schedules.filter(faculty='edu_graphics')
     }
 
     return render(request, "core/schedule.html", {

@@ -17,6 +17,17 @@
         <div class="documents">
 
             <div class="order">
+                <h2>Окуу графиги</h2>
+                <div class="resolution-block">
+                    {% for item in categories.edu_graphics %}
+                        <a href="{{ item.file.url }}" target="_blank">{{ item.title }}</a>
+                    {% empty %}
+                        <p>Документтер жок.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="order">
                 <h2>Агрардык техникалык факультети</h2>
                 <div class="resolution-block">
                     {% for item in categories.atf %}
