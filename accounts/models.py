@@ -78,8 +78,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = 'Личные данные'
+        verbose_name_plural = 'Личные данные'
 
     def __str__(self):
         return self.email   

@@ -18,7 +18,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # APPS
 INSTALLED_APPS = [
-    'accounts',
+    "accounts.apps.AccountsConfig",
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
     "unfold.contrib.forms",  # optional, if special form elements are needed
