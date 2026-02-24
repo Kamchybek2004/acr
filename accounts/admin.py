@@ -107,7 +107,8 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
             return super().get_fieldsets(request, obj)
 
         return (
-            (None, {"fields": ("email",)}),  # пароль лучше не давать менять через админку
+            ("Профиль", {"fields": ("photo",)}),
+            ("Почта", {"fields": ("email",)}),  # пароль лучше не давать менять через админку
             ("Персональные данные", {
                 "fields": ("first_name", "last_name", "patronymic", "birth_date", "gender", "citizenship")
             }),
