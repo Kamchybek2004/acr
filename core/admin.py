@@ -15,7 +15,7 @@ admin.site.index_title = "Аккредитация"
 # Inlines
 # =======================
 
-class ModuleInline(admin.TabularInline):
+class ModuleInline(TabularInline):
     model = Module
     extra = 0
     ordering = ('name',)
@@ -23,14 +23,14 @@ class ModuleInline(admin.TabularInline):
     classes = ('collapse',)
 
 
-class ProfileDocumentInline(admin.TabularInline):
+class ProfileDocumentInline(TabularInline):
     model = ProfileDocument
     extra = 0
     show_change_link = True
     classes = ('collapse',)
 
 
-class CompetencePassportInline(admin.TabularInline):
+class CompetencePassportInline(TabularInline):
     model = CompetencePassport
     extra = 0
     show_change_link = True
@@ -42,7 +42,7 @@ class CompetencePassportInline(admin.TabularInline):
 # =======================
 
 @admin.register(Major)
-class MajorAdmin(admin.ModelAdmin):
+class MajorAdmin(ModelAdmin):
     list_display = ('code', 'name', 'edu_level')
     search_fields = ('code', 'name')
     list_filter = ('edu_level',)
@@ -55,7 +55,7 @@ class MajorAdmin(admin.ModelAdmin):
 # =======================
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(ModelAdmin):
     list_display = ('name', 'major', 'study_form')
     list_filter = ('study_form', 'major')
     search_fields = ('name',)
@@ -84,7 +84,7 @@ class ProfileAdmin(admin.ModelAdmin):
 # =======================
 
 @admin.register(Module)
-class ModuleAdmin(admin.ModelAdmin):
+class ModuleAdmin(ModelAdmin):
     list_display = ('name', 'profile')
     search_fields = ('name',)
     autocomplete_fields = ('profile',)
@@ -96,14 +96,14 @@ class ModuleAdmin(admin.ModelAdmin):
 # =======================
 
 @admin.register(ProfileDocument)
-class ProfileDocumentAdmin(admin.ModelAdmin):
+class ProfileDocumentAdmin(ModelAdmin):
     list_display = ('title', 'profile')
     search_fields = ('title',)
     autocomplete_fields = ('profile',)
 
 
 @admin.register(CompetencePassport)
-class CompetencePassportAdmin(admin.ModelAdmin):
+class CompetencePassportAdmin(ModelAdmin):
     list_display = ('title', 'profile')
     autocomplete_fields = ('profile',)
 
@@ -113,7 +113,7 @@ class CompetencePassportAdmin(admin.ModelAdmin):
 # =======================
 
 @admin.register(License)
-class LicenseAdmin(admin.ModelAdmin):
+class LicenseAdmin(ModelAdmin):
     list_display = ('title', 'text')
     search_fields = ('title', 'text')
 
@@ -121,7 +121,7 @@ class LicenseAdmin(admin.ModelAdmin):
 
 
 @admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
+class OrderAdmin(ModelAdmin):
     list_display = ('title','category') 
     list_filter = ('category',)
     search_fields = ('title',)
@@ -134,7 +134,7 @@ class OrderAdmin(admin.ModelAdmin):
 # =======================
 
 @admin.register(Schedule)
-class ScheduleAdmin(admin.ModelAdmin):
+class ScheduleAdmin(ModelAdmin):
     list_display = ('title', 'faculty')
     list_filter = ('faculty',)
     search_fields = ('title',)
