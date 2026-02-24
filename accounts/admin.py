@@ -69,7 +69,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return request.user.is_superuser
 
-     def changelist_view(self, request, extra_context=None):
+    def changelist_view(self, request, extra_context=None):
         if request.user.is_superuser:
             return super().changelist_view(request, extra_context)
 
