@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from unfold.admin import ModelAdmin
