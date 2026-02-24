@@ -10,7 +10,7 @@ admin.site.site_header = "Панель управления аккредитац
 admin.site.site_title = "Админ панель"
 admin.site.index_title = "Панель управления"
 
-
+ 
 # =======================
 # Inlines
 # =======================
