@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from django.urls import reverse_lazy
 
 load_dotenv()
 
@@ -35,6 +36,37 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
 ]
+
+from django.urls import reverse_lazy
+
+UNFOLD = {
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": "Аккредитация",
+                "items": [
+                    {
+                        "title": "Направления",
+                        "icon": "academic-cap",
+                        "link": reverse_lazy("admin:accreditation_major_changelist"),
+                    },
+                    {
+                        "title": "Профили",
+                        "icon": "user-circle",
+                        "link": reverse_lazy("admin:accreditation_profile_changelist"),
+                    },
+                    {
+                        "title": "Модули",
+                        "icon": "squares-2x2",
+                        "link": reverse_lazy("admin:accreditation_module_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}
 
 LOGIN_URL = '/accounts/login/'  # на твою кастомную форму логина
 LOGIN_REDIRECT_URL = '/admin/'   # куда редирект после успешного логина
