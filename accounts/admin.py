@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.html import format_html
 
 from unfold.admin import ModelAdmin
 from .models import User
@@ -10,12 +11,22 @@ from .models import User
 @admin.register(User)
 class UserAdmin(BaseUserAdmin, ModelAdmin):
     ordering = ("email",)
-    list_display = ("email", "first_name", "last_name", "is_staff")
+    list_display = ("avatar_small", "email", "first_name", "last_name", "is_staff")
     search_fields = ("email", "first_name", "last_name")
+
+    readonly_fields = ("avatar_large",)
 
     # 1) Полные fieldsets — для суперпользователя
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (
+            "Профиль", {
+                "fields": (
+                    "avatar_large",
+                    "photo"
+                )
+            }
+        ),
+        ("Почта", {"fields": ("email", "password")}),
         ("Персональные данные", {
             "fields": ("first_name", "last_name", "patronymic", "birth_date", "gender", "citizenship")
         }),
@@ -30,6 +41,40 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     )
 
     filter_horizontal = ("groups", "user_permissions")
+
+    def avatar_small(self, obj):
+        if obj.photo:
+            return format_html(
+                '<img src="{}" style="height:40px;width:40px;border-radius:50%;object-fit:cover;" />',
+                obj.photo.url
+            )
+        return "_"
+
+    avatar_small.short_description = ""
+
+
+    # большой аватар в профиле
+    def avatar_large(self, obj):
+        if obj.photo:
+            return format_html(
+                """
+                <div style="display:flex;align-items:center;gap:20px;">
+                    <img src="{}"
+                         style="
+                            height:140px;
+                            width:140px;
+                            border-radius:50%;
+                            object-fit:cover;
+                            border:3px solid #e5e7eb;
+                            box-shadow:0 4px 12px rgba(0,0,0,0.15);
+                         " />
+                </div>
+                """,
+                obj.photo.url
+            )
+        return "Фото не загружено"
+
+    avatar_large.short_description = "Фото профиля"
 
     # 2) Обычный staff НЕ может добавлять/удалять пользователей
     def has_add_permission(self, request):

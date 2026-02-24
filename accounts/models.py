@@ -3,6 +3,13 @@ from django.db import models
 from .managers import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
+    photo = models.ImageField(
+        _("Фото профиля"),
+        upload_to = "users/photos/",
+        blank=True,
+        null=True,
+    )
+
     email = models.EmailField(
         'Email',
         unique=True
@@ -50,7 +57,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=150,
         blank=True
     )
-    
+
     is_staff = models.BooleanField(
         default=False
         )
