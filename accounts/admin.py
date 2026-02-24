@@ -11,8 +11,28 @@ class UserAdmin(BaseUserAdmin):
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Персональные данные', {'fields': ('first_name', 'last_name')}),
-        ('Права доступа', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+
+        ('Персональные данные', {
+            'fields': (
+                'first_name', 
+                'last_name',
+                'patronymic',
+                'birth_date',
+                'gender',
+                'citizenship',
+                )
+            }),
+
+        ('Права доступа', {
+            'fields': (
+                'is_active', 
+                'is_staff', 
+                'is_superuser', 
+                'groups', 
+                'user_permissions'
+                )
+            }),
+
         ('Системное', {'fields': ('last_login',)}),
     )
 
