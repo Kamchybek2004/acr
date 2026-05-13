@@ -43,7 +43,7 @@
 
             <!-- Приказы мин.образовании -->
             <div class="order">
-                <h2>Кыргыз Республикасынын Илим, жогорку билим берүү министрлигинин буйруктары, каттары</h2>
+                <h2>Кыргыз Республикасынын Илим, жогорку билим берүү жана инновациялар министрлигинин буйруктары, каттары</h2>
                 <div class="resolution-block">
                     {% for order in categories.ministry_orders %}
                         <a href="{{ order.file.url }}" target="_blank">{{ order.title }}</a>
@@ -55,7 +55,7 @@
 
             <!-- Приказы НГУ -->
             <div class="order-nsu">
-                <h2>Нарын мамлекеттик университетинин буйруктары</h2>
+                <h2>Ж.Баласагын атындагы КУУнин С.Нааматов атындагы Нарын аймактык көп тармактуу институтунун буйруктары</h2>
                 {% for order in categories.nsu_orders %}
                 <div class="resolution-block">
                     <a href="{{ order.file.url }}" target="_blank">{{ order.title}}</a>
